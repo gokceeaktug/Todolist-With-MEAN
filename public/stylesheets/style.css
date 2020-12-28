@@ -1,0 +1,87 @@
+*{
+    font-size: 20px;
+   
+}
+body
+{
+    background-image: url("/images/wp3006038.png");
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    
+  
+}
+.container .row .col-md-3 .sticky{
+    color: rgb(85, 76, 167);
+    margin: 3px;
+    padding: 5px;
+    text-align: left;
+    font-size: 30px;
+  
+}
+.container .row .col-md-3 .sticky:hover
+{
+    color: yellow;
+}
+.controllerr .row .col-md-2 h1{
+    color: rgb(233, 233, 222);
+    font-size: 25px;
+    margin: 16px;
+    padding: 16px;
+    text-align: center;
+    
+
+}
+.controllerr .row .col-md-2 h1:hover
+{
+    color: yellow;
+}
+.controllerr .row .col-md-6 .selected
+{
+    border: 1px solid black;
+    border-radius: 7px;
+    background-color: pink;
+    padding: 2px;
+    margin: 30px;
+    width: 50%;
+    height: auto;
+}
+.controllerr .row .col-md-6 .selected:hover
+{
+    background-color: rgb(90, 50, 90);
+}
+.controllerr .row .col-md-6 .selected .optioned:hover
+{
+    color: yellow;
+    background-color: purple;
+}
+
+.form1
+{
+    margin: 6px;
+    padding: 30px;
+}
+
+.form1 h5
+{
+    color: white;
+    
+}
+.form1 .input
+{
+    border:1px solid black;
+    border-radius: 7px;
+}
+.controllerr .person
+{
+    color: rgb(211, 0, 0);
+}
+.controllerr .person .personal
+{
+    color: rgb(238, 255, 0);
+}
+.controllerr .person  #btn-success
+{
+
+}

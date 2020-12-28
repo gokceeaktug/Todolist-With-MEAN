@@ -1,0 +1,157 @@
+<!DOCTYPE html >
+<html  ng-app="app" >
+    <head lang="en">
+        <title>kisi ekle </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>  
+    <script src="/public/javascripts/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="public/stylesheets/style.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+</head>
+<body>
+
+    <!-- nav bar start -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid ">
+          <a class="navbar-brand" href="#">Person Information</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Person</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">List</a>
+              </li>
+              
+            </ul>
+          </div>
+          <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </nav>
+    <!-- end of navbar -->
+
+
+
+
+    <!-- kişi seçimi  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h1 class="sticky">Kişi Listesi</h1>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    
+    <div ng-controller = "mainCtrl" class="controllerr">
+        <div class="row">
+            <div class="col-md-2">
+                <h1> Seçilen kişi:  {{selectedName}}</h1>
+            </div>
+            <div class="col-md-6">
+                <select ng-model="selectedName" class="selected">
+                    <option class="optioned" ng-repeat="person in persons" value="{{person.name}}">{{person.name}} </option>
+                    </select>
+            </div>
+        </div>
+    
+    
+        <form class="form1" novalidate>
+            <h5>Bilgiler</h5>
+            <input class="input" type="text" class="isimekle" ng-model="person.name"   required placeholder="isim giriniz:">
+            <input  class="input" type="text" class="numaraekle" ng-model="person.number"   required placeholder="numara giriniz:">
+            <input  class="input" type="email" class="emailekle" ng-model="person.email"   required  placeholder="email giriniz : ">
+            <button type="button" class="btn btn-outline-success"  ng-click="addPerson(person)"
+            style="width: 20%; height: 6.5vh; text-align:center;margin: 3px; padding: 3px;">Yeni Kişi Ekle</button>
+        </form> 
+
+        <!-- kişi ekleme  -->
+
+        <table  id="person" class="person" >
+            <thead>
+                <tr>
+                    <th>Information</th>
+                    <th></th>
+                    <th>Person Name</th>
+                    <th>Person Number</th>
+                    <th>Person Email</th>
+                   
+                   
+                </tr>
+            </thead>
+            
+          
+           
+            <tr ng-repeat="person in persons">
+                <td class="personal">
+                    {{person.name}}
+                    {{person.number}}
+                    {{person.email}}
+                </td>
+                <td> 
+                   
+                 <td>
+                  
+                     <input type="text" 
+                     ng-model="person.name"  
+                     required> 
+                    </input> 
+                </td> 
+                 <td> 
+                     <input type="text" 
+                     ng-model="person.number"  
+                     required>
+                    </input> 
+                </td>
+                 <td> 
+                     <input type="text" 
+                     ng-model="person.email"  
+                     required> 
+                    </input> 
+                </td>
+                 </input> 
+
+                </td>
+
+                 <td>
+                     <button type="button" 
+                     class="btn btn-outline-danger"
+                     ng-click="removePerson(person._id)" 
+                     value="Sil"
+                     style="width: 100%; height: 6.5vh; text-align:left;"> 
+                     Sil
+                     </button>
+                 </td>
+                 <td>
+                    <button type="button" 
+                    class="btn btn-outline-info"
+                    ng-click="updatePerson(person._id)"
+                    value="Güncelle"
+                    style="width: 100%; height: 6.5vh; text-align:left;">
+                    Güncelle
+                    </button>
+                 </td>
+            </tr>
+        </table>
+    </div>
+     
+</body>
+</html>
